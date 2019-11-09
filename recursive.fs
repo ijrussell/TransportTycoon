@@ -41,7 +41,7 @@ let rec tick state result =
         let (truck1', cargo', portCargo') = (i, cargo, portCargo) |||> processTruck truck1 
         let (truck2', cargo'', portCargo'') = (i, cargo', portCargo') |||> processTruck truck2
         let (ship', portCargo''') = (i, portCargo'') ||> processShip ship 
-        //printfn "Day: %A - T1: %A - T2: %A - S: %A - Cargo: %A - PortCargo: %A" cd truck1' truck2' ship' cargo'' portCargoX
+        //printfn "Iteration: %A - T1: %A - T2: %A - S: %A - Cargo: %A - PortCargo: %A" i truck1' truck2' ship' cargo'' portCargo'''
         let maxValue = [ truck1'; truck2'; ship' ] |> getMaxValue
         tick (i + 1, cargo'', portCargo''', truck1', truck2', ship') maxValue
     else 
