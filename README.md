@@ -3,7 +3,7 @@
 https://github.com/Softwarepark/exercises/blob/master/transport-tycoon.md
 
 > run [A;A;B;A;B;B;A;B] |> printfn "%A"
-- ;;
+
 Iteration: 0 - T1: (Port, 1) - T2: (Port, 1) - S: (Port, 0) - Cargo: [B; A; B; B; A; B] - PortCargo: []
 Iteration: 1 - T1: (Factory, 2) - T2: (Factory, 2) - S: (A, 5) - Cargo: [B; A; B; B; A; B] - PortCargo: [A]
 Iteration: 2 - T1: (B, 7) - T2: (Port, 3) - S: (A, 5) - Cargo: [B; B; A; B] - PortCargo: [A]
