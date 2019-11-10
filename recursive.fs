@@ -1,17 +1,9 @@
-module Recursive
-
 type Destination = Factory | Port | A | B
 type Journey = Destination * int
 type State = int * Destination list * Destination list * Journey * Journey * Journey
 
-let evaluate (input:Journey) =
-    let (d, a) = input
-    match d with
-    | A | B -> Some a
-    | _ -> None
-
 let getMaxValue items =
-    match (items |> List.choose evaluate) with
+    match (items |> List.choose (fun (d, a) -> if d = A || d = B then Some a else None)) with
     | [] -> 0
     | list -> list |> List.max
 
@@ -49,5 +41,7 @@ let rec tick state =
 let run cargo =
     tick (0, cargo, [], (Factory, 0), (Factory, 0), (Port, 0))
 
-run [A;A;B;A;B;B;A;B] |> printfn "%A" 
-
+[<EntryPoint>]
+let main argv =
+    run [A;A;B;A;B;B;A;B] |> printfn "%A" 
+    0 // return an integer exit code
